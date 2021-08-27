@@ -1,0 +1,4 @@
+one: #7FC8A9
+two: #D5EEBB
+three: #5F7A61
+four: #444941
