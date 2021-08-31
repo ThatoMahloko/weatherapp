@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View, ImageBackground } from 'react-native'
 import { Title } from 'react-native-paper';
 
 const Home = ({ data }) => {
 
+    console.log(data)
     const iconurl = "http://openweathermap.org/img/wn/" + `${data.cod !== 404 ? data.weather[0].icon : null}` + ".png";
 
     return (
+        
         <View style={styles.outputContainer}>
+            <ImageBackground />
             {data.cod != 404 ? (
                 <React.Fragment style={styles.outputContainer}>
                     <Title style={styles.text}>{data.name} , {data.sys.country}. Weather</Title>
@@ -18,7 +21,7 @@ const Home = ({ data }) => {
                         <sup>o</sup>
                     </Title>
                     <Title style={styles.text}>{data.weather[0].description}</Title>
-
+                    <Image source={iconurl} alt="" />
                     <View>
                         <table>
                             <tr>
@@ -84,9 +87,9 @@ const styles = StyleSheet.create({
     sideBySide: {
         display: 'flex',
         flexDirection: 'row'
-    }, 
-    table:{
-        borderColor: "#000", 
+    },
+    table: {
+        borderColor: "#000",
         borderWidth: 1
     }
 

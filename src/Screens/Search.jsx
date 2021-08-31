@@ -9,7 +9,7 @@ const Search = () => {
     const [getWeather, setWeather] = useState([]);
 
     async function weatherData(e) {
-        if (getCountry === ""||getCity==="") {
+        if (getCountry === "" || getCity === "") {
             alert("Add Values")
             console.log(getCity, getCountry)
         } else {
@@ -24,10 +24,13 @@ const Search = () => {
     return (
         <View>
             <form>
-                <View style={styles.inputContainer}>
-                    <TextInput style={styles.input} label="City" mode="outlined" placeholder="City" onChangeText={(e) => setCity(e)} />
-                    <TextInput style={styles.input} label="Country" mode="outlined" placeholder="Country" onChangeText={(e) => setCountry(e)} />
-                    <Button style={styles.button} icon="find" mode="contained" onPress={e => weatherData(e)}>SEARCH</Button>
+                <View>
+                    <View style={styles.inputContainer}>
+                        <TextInput style={styles.input} label="City" mode="outlined" placeholder="City" onChangeText={(e) => setCity(e)} />
+                        <TextInput style={styles.input} label="Country" mode="outlined" placeholder="Country" onChangeText={(e) => setCountry(e)} />
+                        <Button style={styles.button} icon="find" mode="contained" onPress={e => weatherData(e)}>SEARCH</Button>
+                    </View>
+                    
                 </View>
             </form>
             {
@@ -46,7 +49,7 @@ export default Search
 const styles = StyleSheet.create({
     inputContainer: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         // justifyContent: 'center',
         alignContent: 'center',
         margin: 'auto',
@@ -58,11 +61,14 @@ const styles = StyleSheet.create({
     }
     ,
     button: {
-        height: 40,
+        height: 55,
         marginTop: 25,
+        width: 300,
         padding: 5,
         fontStyle: 'bolder',
         fontWeight: '800',
+        margin: "auto",
+        marginBottom: 20
 
     }
 })
